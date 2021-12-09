@@ -6,7 +6,7 @@
 /*   By: llima-ce <llima-ce@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 22:54:37 by llima-ce          #+#    #+#             */
-/*   Updated: 2021/12/09 22:28:38 by llima-ce         ###   ########.fr       */
+/*   Updated: 2021/12/09 20:41:41 by llima-ce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,15 +37,13 @@ int	main(int argc,char **argv, char **envp)
 {
 	t_pipex	pipex;
 
-	if(argc == 5)
+	if(argc >= 5)
 	{
 		init_pipex(&pipex, argc, argv, envp);
 		pipex_exc(&pipex);
-		execve(pipex.cmd[1]->path_cmd, pipex.cmd[1]->argv, pipex.envp);
+		free_all(&pipex);
 		exit(0);
 	}
-	else if (argc > 5)
-		exit(ft_error(22, "Too many argument!"));
 	else
 		exit(ft_error(22, "Too few argument!"));
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: luizz <luizz@student.42.fr>                +#+  +:+       +#+        */
+/*   By: llima-ce <llima-ce@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/29 10:51:38 by llima-ce          #+#    #+#             */
-/*   Updated: 2021/11/05 17:06:35 by luizz            ###   ########.fr       */
+/*   Updated: 2021/12/09 19:08:20 by llima-ce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include <stdarg.h>
 # include <stdio.h>
-# include "../../libft.h"
+# include "libft.h"
 
 # define CONVERSIONS "cspdiuxX%"
 # define HEX "0123456789abcdef"

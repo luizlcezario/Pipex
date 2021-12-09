@@ -8,7 +8,7 @@
 			"name": "lldb",
 			"type": "lldb",
 			"request": "launch",
-			"program": "${workspaceRoot}/a.out",
+			"program": "${workspaceRoot}/pipex",
 			"args": [
 				"infile",
 				"ls -l",
@@ -25,10 +25,11 @@
 			"name": "gdb",
 			"type": "cppdbg",
 			"request": "launch",
-			"program": "${workspaceRoot}/a.out",
+			"program": "${workspaceRoot}/pipex",
 			"args": [
 				"infile",
-				"ls -l",
+				"grep ola",
+				"grep gosto",
 				"wc -l",
 				"outfile",
 			],

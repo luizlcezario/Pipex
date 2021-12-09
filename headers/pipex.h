@@ -6,14 +6,14 @@
 /*   By: llima-ce <llima-ce@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 23:20:24 by llima-ce          #+#    #+#             */
-/*   Updated: 2021/12/09 21:52:16 by llima-ce         ###   ########.fr       */
+/*   Updated: 2021/12/09 20:37:43 by llima-ce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PIPEX_H
 # define PIPEX_H
 
-#include "libft/libft.h"
+#include "libft.h"
 #include <string.h>
 #include <sys/types.h>
 #include <sys/wait.h>
@@ -53,6 +53,8 @@ void	init_cmds(t_pipex *pipex);
 int		testing_acess(t_pipex *pipex, int a);
 int		find_cmd(t_pipex *pipex, int i);
 int		split_paths(t_pipex *pipex);
+
+void	free_all(t_pipex *pipex);
 
 void	init_pipe(t_pipex *pipex);
 void	pipex_exc(t_pipex *pipex);

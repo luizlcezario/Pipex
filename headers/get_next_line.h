@@ -6,7 +6,7 @@
 /*   By: llima-ce <llima-ce@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 17:16:46 by llima-ce          #+#    #+#             */
-/*   Updated: 2021/09/29 10:25:48 by llima-ce         ###   ########.fr       */
+/*   Updated: 2021/12/09 19:08:25 by llima-ce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 
 # include <unistd.h>
 # include <stdlib.h>
-# include "../libft.h"
+# include "libft.h"
 
 /**
  * @brief Get the next line linked, this funcitons is for get a next line of a

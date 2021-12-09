@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_pipex.c                                       :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: llima-ce <llima-ce@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/07 18:40:01 by llima-ce          #+#    #+#             */
-/*   Updated: 2021/12/09 20:35:36 by llima-ce         ###   ########.fr       */
+/*   Created: 2021/08/17 16:38:51 by llima-ce          #+#    #+#             */
+/*   Updated: 2021/12/09 19:22:43 by llima-ce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "libft.h"
 
-void	init_pipex(t_pipex *pipex, int argc, char **argv, char **envp)
+char	*ft_strchr(const char *str, int n)
 {
-	pipex->err_num = 0;
-	pipex->argc = argc;
-	pipex->cmd_num = argc - 3;
-	pipex->argv = argv;
-	pipex->envp = envp;
-	pipex->fd.infd = open(pipex->argv[1], O_RDONLY);
-	pipex->fd.outfd  = open(pipex->argv[argc - 1], O_RDWR, O_CREAT);
-	init_cmds(pipex);
+	int	a;
+
+	a = 0;
+	while (*(str + a) != (char)n)
+	{
+		if (*(str + a) == 0)
+			return (NULL);
+		a++;
+	}
+	return ((char *)(str + a));
 }

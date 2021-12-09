@@ -6,7 +6,7 @@
 /*   By: llima-ce <llima-ce@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 18:50:53 by llima-ce          #+#    #+#             */
-/*   Updated: 2021/12/08 20:59:43 by llima-ce         ###   ########.fr       */
+/*   Updated: 2021/12/09 20:35:30 by llima-ce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,4 @@ void	init_cmds(t_pipex *pipex)
 			perror_custom(pipex, "something goes wrong when testing the cmds");
 		i++;
 	}
-}
-
-void	init_pipe(t_pipex *pipex)
-{
-	
 }

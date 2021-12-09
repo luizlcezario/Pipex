@@ -6,27 +6,27 @@
 /*   By: llima-ce <llima-ce@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/16 23:03:35 by llima-ce          #+#    #+#             */
-/*   Updated: 2021/12/01 23:16:15 by llima-ce         ###   ########.fr       */
+/*   Updated: 2021/12/09 19:23:36 by llima-ce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
-# define LIBFT_H
+#define LIBFT_H
 
-# include <unistd.h>
-# include <stdlib.h>
-# include "./others/get_next_line.h"
-# include "./others/printf/ft_printf.h"
+#include <unistd.h>
+#include <stdlib.h>
+#include "get_next_line.h"
+#include "ft_printf.h"
 
 typedef struct s_list
 {
-	void			*content;
-	struct s_list	*next;
-}				t_list;
+	void *content;
+	struct s_list *next;
+} t_list;
 
-# define INT_MAX 2147483647
+#define INT_MAX 2147483647
 
-# define INT_MIN -2147483648
+#define INT_MIN -2147483648
 
 //*******************************-Part_1-***************************************
 
@@ -34,36 +34,36 @@ typedef struct s_list
  * @brief if ARG is an alphabetic value returns 1024.
  * @param	arg.
  * @return 1024.
-*/		
-int		ft_isalpha(int arg);
+*/
+int ft_isalpha(int arg);
 
 /**
  * @brief if ARG is an alphabetic value returns 8.
  * @param	arg.
  * @return 8.
 */
-int		ft_isalnum(int arg);
+int ft_isalnum(int arg);
 
 /**
  * @brief if ARG is an ASCII value returns 1.
  * @param	arg.
  * @return	1.
 */
-int		ft_isascii(int arg);
+int ft_isascii(int arg);
 
 /**
  * @brief if ARG is a number value returns 1.
  * @param	arg.
  * @return	2048.
 */
-int		ft_isdigit(int arg);
+int ft_isdigit(int arg);
 
 /**
  * @brief if ARG is a printable value returns 16384.
  * @param	arg.
  * @return	16384.
 */
-int		ft_isprint(int arg);
+int ft_isprint(int arg);
 
 /**
  * @brief Function returns the lentgh of STR.
@@ -71,7 +71,7 @@ int		ft_isprint(int arg);
  * @param str string to be counted.
  * @return length of the STR.
  */
-size_t	ft_strlen(const char *str);
+size_t ft_strlen(const char *str);
 
 /**
  * @brief function fills the first N bytes of the memory area pointed to by PTR 
@@ -81,7 +81,7 @@ size_t	ft_strlen(const char *str);
  * @param	N until the this bit.
  * @return	the dest with the copy of src.
 */
-void	*ft_memset(void *ptr, int x, size_t n);
+void *ft_memset(void *ptr, int x, size_t n);
 
 /**
  * @brief Adding a NULL byte in the address of STR and more N more addresses 
@@ -89,7 +89,7 @@ void	*ft_memset(void *ptr, int x, size_t n);
  * @param str address to be add \0.
  * @param n add until this.
  */
-void	ft_bzero(void *str, size_t n);
+void ft_bzero(void *str, size_t n);
 
 /**
  * @brief Copy the SRC to DEST, it copies only until the N byte and then 
@@ -99,7 +99,7 @@ void	ft_bzero(void *str, size_t n);
  * @param	N until this bit.
  * @return	the dest with the copy of src.
 */
-void	*ft_memcpy(void *dest, const void *src, size_t n);
+void *ft_memcpy(void *dest, const void *src, size_t n);
 
 /**
  * @brief Copy the SRC to DEST, it copies only until the N byte and then 
@@ -109,7 +109,7 @@ void	*ft_memcpy(void *dest, const void *src, size_t n);
  * @param	N until the this bit.
  * @return	the dest with the copy of src.
 */
-void	*ft_memmove(void *dest, const void *src, size_t n);
+void *ft_memmove(void *dest, const void *src, size_t n);
 
 /**
  * @brief Function copies the SRC to DEST,while dosen't reach the SIZE.
@@ -119,7 +119,7 @@ void	*ft_memmove(void *dest, const void *src, size_t n);
  * @param size copy until this number.
  * @return is the len of SRC + DEST if SIZE < DEST then SRC + SIze.
  */
-size_t	ft_strlcpy(char *dest, const char *src, size_t size);
+size_t ft_strlcpy(char *dest, const char *src, size_t size);
 
 /**
  * @brief Function tries to concat the SRC to DEST,while dosen't reach the SIZE.
@@ -129,15 +129,15 @@ size_t	ft_strlcpy(char *dest, const char *src, size_t size);
  * @param size tries to concat until this.
  * @return is the size of SRC.
  */
-size_t	ft_strlcat(char *dest, const char *src, size_t size);
+size_t ft_strlcat(char *dest, const char *src, size_t size);
 
 /**
  * @brief Function trasform lowercase letter into uppercase.
  * 
  * @param c to be verify
  * @return int
- */		
-int		ft_toupper(int c);
+ */
+int ft_toupper(int c);
 
 /**
  * @brief Function trasform uppercase letter into lowercase.
@@ -145,7 +145,7 @@ int		ft_toupper(int c);
  * @param c to be verify
  * @return int 
  */
-int		ft_tolower(int c);
+int ft_tolower(int c);
 
 /**
  * @brief Function locates the first N in the STR.
@@ -154,7 +154,7 @@ int		ft_tolower(int c);
  * @param n to be find
  * @return the address of the first N.
  */
-char	*ft_strchr(const char *str, int n);
+char *ft_strchr(const char *str, int n);
 
 /**
  * @brief Function locates the last N in the STR.
@@ -163,7 +163,7 @@ char	*ft_strchr(const char *str, int n);
  * @param n to be find
  * @return the address of the last N.
  */
-char	*ft_strrchr(const char *str, int n);
+char *ft_strrchr(const char *str, int n);
 
 /**
  * @brief Function Comparer the S1 with the S2, until the N byte.
@@ -173,7 +173,7 @@ char	*ft_strrchr(const char *str, int n);
  * @param n compare until this byte.
  * @return 0 for egual || > 0 for s1 || 0 < for s2
  */
-int		ft_strncmp(const char *s1, const char *s2, size_t n);
+int ft_strncmp(const char *s1, const char *s2, size_t n);
 
 /**
  * @brief Function locates the first C in the STR, it searches only until the N 
@@ -182,8 +182,8 @@ int		ft_strncmp(const char *s1, const char *s2, size_t n);
  * @param c to be finded.
  * @param n search until this byte.
  * @return the addrres of the first C
- */	
-void	*ft_memchr(const void *str, int c, size_t n);
+ */
+void *ft_memchr(const void *str, int c, size_t n);
 
 /**
  * @brief Function compares the STR to PTR.
@@ -192,7 +192,7 @@ void	*ft_memchr(const void *str, int c, size_t n);
  * @param n compare until this byte.
  * @return 0 for egual || > 0 for str || 0 < for ptr
  */
-int		ft_memcmp(const void *str, const void *ptr, size_t n);
+int ft_memcmp(const void *str, const void *ptr, size_t n);
 
 /**
  * @brief Function locates the first PTR in the STR, it searches only until the 
@@ -202,14 +202,14 @@ int		ft_memcmp(const void *str, const void *ptr, size_t n);
  * @param n search until this byte.
  * @return the first ptr in str.
  */
-char	*ft_strnstr(const char *str, const char *ptr, size_t n);
+char *ft_strnstr(const char *str, const char *ptr, size_t n);
 
 /**
  * @brief Transform a string with a number in an integer with the same value.
  * @param dest string to be transformed in int.
  * @return int
  */
-int		ft_atoi(const char *dest);
+int ft_atoi(const char *dest);
 
 /**
  * @brief Allocates memory and in each memory put one 0.
@@ -218,7 +218,7 @@ int		ft_atoi(const char *dest);
  * @param size the size of the memory to be allocate.
  * @return address of the space that was allocated.
  */
-void	*ft_calloc(size_t nelem, size_t size);
+void *ft_calloc(size_t nelem, size_t size);
 
 /**
  * @brief Copy the STR to a new pointer.
@@ -226,7 +226,7 @@ void	*ft_calloc(size_t nelem, size_t size);
  * @param str the string to be copy
  * @return a new address with the same string of str.
  */
-char	*ft_strdup(const char *str);
+char *ft_strdup(const char *str);
 
 //*******************************-part_2-**************************************
 
@@ -238,7 +238,7 @@ char	*ft_strdup(const char *str);
  * @param len number of the bytes to be copy.
  * @return a new address to with the copy.
  */
-char	*ft_substr(char const *s, unsigned int start, size_t len);
+char *ft_substr(char const *s, unsigned int start, size_t len);
 
 /**
  * @brief Copy the S1 concatenate with S2.
@@ -247,7 +247,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len);
  * @param s2 string to end the new string.
  * @return new address with the s1 + s2.
  */
-char	*ft_strjoin(char const *s1, char const *s2);
+char *ft_strjoin(char const *s1, char const *s2);
 
 /**
  * @brief Create a new pointer that points to the S1 - all the ocurrencies of 
@@ -257,7 +257,7 @@ char	*ft_strjoin(char const *s1, char const *s2);
  * @param set the characteres to be trimmed in s1.
  * @return the new pointer with the string trimmed.
  */
-char	*ft_strtrim(char const *s1, char const *set);
+char *ft_strtrim(char const *s1, char const *set);
 
 /**
  * @brief Function separe the string S in a Matrix with the separator C
@@ -267,7 +267,7 @@ char	*ft_strtrim(char const *s1, char const *set);
  * @return a pointer to the other pointer that have all the parters of the
  * splited string S
  */
-char	**ft_split(char const *s, char c);
+char **ft_split(char const *s, char c);
 
 /**
  * @brief Transform the int N in the string with the value of N.
@@ -275,7 +275,7 @@ char	**ft_split(char const *s, char c);
  * @param n transform the int in a string the represents the int.
  * @return the string that's is equal to the int.
  */
-char	*ft_itoa(int n);
+char *ft_itoa(int n);
 
 /**
  * @brief Applies the function F to each character of the string S to create 
@@ -285,8 +285,7 @@ char	*ft_itoa(int n);
  * @param f pointer to function to be used in each char of the S.
  * @return the string with the F applied in each Character of S.
  */
-char	*ft_strmapi(char const *s, char (*f)(unsigned
-				int, char));
+char *ft_strmapi(char const *s, char (*f)(unsigned int, char));
 
 /**
  * @brief Applies the function f to each character of the string passed as
@@ -297,22 +296,22 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned
  * @param f pointer to function to be used in each char of the S.
  * @return the string with the F applied in each Character of S.
  */
-void	ft_striteri(char *s, void (*f)(unsigned int,
-				char*));
+void ft_striteri(char *s, void (*f)(unsigned int,
+									char *));
 
 /**
  * @brief Outputs the character C to the given file descriptor.
  * @param c The character to output.
  * @param fd The file descriptor on which to write.
  */
-void	ft_putchar_fd(char c, int fd);
+void ft_putchar_fd(char c, int fd);
 
 /**
  * @brief Outputs the string S to the given file descriptor.
  * @param s The string to output.
  * @param fd The file descriptor on which to write.
  */
-void	ft_putstr_fd(char *s, int fd);
+void ft_putstr_fd(char *s, int fd);
 
 /**
  * @brief  write Description Outputs the string ’s’ to the given file 
@@ -320,13 +319,13 @@ void	ft_putstr_fd(char *s, int fd);
  * @param s  The string to output.
  * @param fd The file descriptor on which to write.
  */
-void	ft_putendl_fd(char *s, int fd);
+void ft_putendl_fd(char *s, int fd);
 /**
  * @brief Outputs the integer N to the given file descriptor.
  * @param n	the integer to be printed.
  * @param fd the descriptor.
  */
-void	ft_putnbr_fd(int n, int fd);
+void ft_putnbr_fd(int n, int fd);
 
 //****************************** bonus ***************************************
 
@@ -337,7 +336,7 @@ void	ft_putnbr_fd(int n, int fd);
  * @param content the string to be created to the new t_list.
  * @return returns the address of the new t_list element.
  */
-t_list	*ft_lstnew(void *content);
+t_list *ft_lstnew(void *content);
 
 /**
  * @brief Add a new element to the start of the linked list appointed by lst.
@@ -345,7 +344,7 @@ t_list	*ft_lstnew(void *content);
  * @param lst list of address of t_lists.
  * @param new elemt to be add to the start of the LST.
  */
-void	ft_lstadd_front(t_list **lst, t_list *new_element);
+void ft_lstadd_front(t_list **lst, t_list *new_element);
 
 /**
  * @brief find the length of the linked list appointed by LST
@@ -353,7 +352,7 @@ void	ft_lstadd_front(t_list **lst, t_list *new_element);
  * @param lst linked list to be count.
  * @return length of LST
  */
-int		ft_lstsize(t_list *lst);
+int ft_lstsize(t_list *lst);
 
 /**
  * @brief find the last element of the linked list.
@@ -361,7 +360,7 @@ int		ft_lstsize(t_list *lst);
  * @param lst address of a linked list.
  * @return the address of the linked list.
  */
-t_list	*ft_lstlast(t_list *lst);
+t_list *ft_lstlast(t_list *lst);
 
 /**
  * @brief add a new element to the linked list in the end.
@@ -369,7 +368,7 @@ t_list	*ft_lstlast(t_list *lst);
  * @param lst appointed a linked list.
  * @param new the new element to be added.
  */
-void	ft_lstadd_back(t_list **lst, t_list *new_element);
+void ft_lstadd_back(t_list **lst, t_list *new_element);
 
 /**
  * @brief aplies the function DEL to the LST and them free the LST.
@@ -377,7 +376,7 @@ void	ft_lstadd_back(t_list **lst, t_list *new_element);
  * @param lst linked element to be deleted and free.
  * @param del function to delete the element.
  */
-void	ft_lstdelone(t_list *lst, void (*del)(void *));
+void ft_lstdelone(t_list *lst, void (*del)(void *));
 
 /**
  * @brief applies the del function to the all elements of the linked list and
@@ -386,7 +385,7 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *));
  * @param lst list be clear and deleted.
  * @param del functions to delete the elements.
  */
-void	ft_lstclear(t_list **lst, void (*del)(void *));
+void ft_lstclear(t_list **lst, void (*del)(void *));
 
 /**
  * @brief Iterates the list ’lst’ and applies the function ’f’ to the content 
@@ -395,7 +394,7 @@ void	ft_lstclear(t_list **lst, void (*del)(void *));
  * @param lst The address of a pointer to an element.
  * @param f The address of the function used to iterate on the list.
  */
-void	ft_lstiter(t_list *lst, void (*f)(void *));
+void ft_lstiter(t_list *lst, void (*f)(void *));
 
 /**
  * @brief Iterates the list ’lst’ and applies the function ’f’ to the content 
@@ -408,7 +407,7 @@ void	ft_lstiter(t_list *lst, void (*f)(void *));
  * element if needed.
  * @return The new list. NULL if the allocation fails.
  */
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+t_list *ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
 /****************************** others ****************************************/
 /**
@@ -419,7 +418,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
  * @param ptr to search all
  * @return char* the address of the first letters of ptr
  */
-char	*ft_strfstr(const char *str, const char *ptr);
+char *ft_strfstr(const char *str, const char *ptr);
 /**
  * @brief function transforma a number in base 10 to base that was passed in 	
  * the variable BASE 
@@ -428,7 +427,7 @@ char	*ft_strfstr(const char *str, const char *ptr);
  * @param base the base
  * @return char* a adress with the number transformed 
  */
-char	*ft_itoa_base(size_t number, char *base);
+char *ft_itoa_base(size_t number, char *base);
 
 /**
  * @brief This is a error function to print a error message
@@ -437,5 +436,5 @@ char	*ft_itoa_base(size_t number, char *base);
  * @param message message to be more especific in the error
  * @return -1 indicated that some error was occorrer
  */
-int		ft_error(int errnum, char *message);
+int ft_error(int errnum, char *message);
 #endif
