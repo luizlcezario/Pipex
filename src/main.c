@@ -6,7 +6,7 @@
 /*   By: llima-ce <llima-ce@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 22:54:37 by llima-ce          #+#    #+#             */
-/*   Updated: 2021/12/09 20:41:41 by llima-ce         ###   ########.fr       */
+/*   Updated: 2021/12/21 17:33:32 by llima-ce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@
 int	main(int argc,char **argv, char **envp)
 {
 	t_pipex	pipex;
+	char **teste;
 
 	if(argc >= 5)
 	{

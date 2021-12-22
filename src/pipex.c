@@ -6,7 +6,7 @@
 /*   By: llima-ce <llima-ce@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 21:50:03 by llima-ce          #+#    #+#             */
-/*   Updated: 2021/12/09 20:36:57 by llima-ce         ###   ########.fr       */
+/*   Updated: 2021/12/21 15:47:53 by llima-ce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static int	execute_cmds(t_pipex *pipex, int *fd, int a, int fd_tmp)
 		close(fd[0]);
 		return(0);
 	}
-	waitpid(-1, &pipex->err_num, WNOHANG);
+	wait(&pipex->err_num);
 	fd_tmp = fd[0];
 	close(fd[1]);
 	return (0);

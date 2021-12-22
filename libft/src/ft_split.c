@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: luizz <luizz@student.42.fr>                +#+  +:+       +#+        */
+/*   By: llima-ce <llima-ce@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/19 17:44:14 by llima-ce          #+#    #+#             */
-/*   Updated: 2021/11/05 17:02:55 by luizz            ###   ########.fr       */
+/*   Updated: 2021/12/21 17:45:35 by llima-ce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ char	**ft_split(char const *s, char c)
 	res = (char **)malloc(sizeof(char *) * (num + 1));
 	if (!res)
 		return (NULL);
+	res[num] = NULL; 
 	ft_fill_matrix(s, c, num, res);
 	return (res);
 }
@@ -69,5 +70,4 @@ static void	ft_fill_matrix(char const *s, char c, size_t num, char **res)
 		start_str += len_word;
 		count++;
 	}
-	res[count] = 0;
 }

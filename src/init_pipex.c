@@ -6,7 +6,7 @@
 /*   By: llima-ce <llima-ce@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 18:40:01 by llima-ce          #+#    #+#             */
-/*   Updated: 2021/12/09 20:35:36 by llima-ce         ###   ########.fr       */
+/*   Updated: 2021/12/21 18:48:02 by llima-ce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ void	init_pipex(t_pipex *pipex, int argc, char **argv, char **envp)
 	pipex->argv = argv;
 	pipex->envp = envp;
 	pipex->fd.infd = open(pipex->argv[1], O_RDONLY);
-	pipex->fd.outfd  = open(pipex->argv[argc - 1], O_RDWR, O_CREAT);
+	pipex->fd.outfd  = open(pipex->argv[argc - 1], O_CREAT | O_WRONLY | O_APPEND, 0777);
+	if(pipex->fd.infd == -1 || pipex->fd.outfd == -1)
+		perror_custom(pipex, "error to try open file");
 	init_cmds(pipex);
 }

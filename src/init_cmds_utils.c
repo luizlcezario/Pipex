@@ -6,7 +6,7 @@
 /*   By: llima-ce <llima-ce@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 18:56:02 by llima-ce          #+#    #+#             */
-/*   Updated: 2021/12/09 22:14:11 by llima-ce         ###   ########.fr       */
+/*   Updated: 2021/12/21 18:27:02 by llima-ce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,7 @@ int		split_paths(t_pipex *pipex)
 
 int		find_cmd(t_pipex *pipex, int i)
 {
-	char	*separator;
-
-	pipex->cmd[i] = (t_cmd *)malloc(1 * sizeof(t_cmd));
+	pipex->cmd[i] = malloc(1 * sizeof(t_cmd));
 	if(!pipex->cmd[i])
 		return (7);
 	pipex->cmd[i]->argv = ft_split(pipex->argv[2 + i], ' ');
@@ -53,7 +51,7 @@ int		testing_acess(t_pipex *pipex, int a)
 				pipex->cmd[a]->argv[0]);
 		if (access(pipex->cmd[a]->path_cmd, X_OK) == 0)
 			return (0);
-		free(pipex->cmd[a]->path_cmd);
+		free_ptr((void **)&pipex->cmd[a]->path_cmd);
 		i++;
 	}
 	return (2);

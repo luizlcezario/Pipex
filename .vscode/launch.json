@@ -27,11 +27,10 @@
 			"request": "launch",
 			"program": "${workspaceRoot}/pipex",
 			"args": [
-				"infile",
-				"grep ola",
-				"grep gosto",
-				"wc -l",
-				"outfile",
+				"files/teste",
+				"wc -w",
+				"cat",
+				"files/res"
 			],
 			"stopAtEntry": false,
 			"cwd": "${workspaceRoot}",

@@ -6,7 +6,7 @@
 /*   By: llima-ce <llima-ce@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 23:20:24 by llima-ce          #+#    #+#             */
-/*   Updated: 2021/12/09 20:37:43 by llima-ce         ###   ########.fr       */
+/*   Updated: 2021/12/21 18:26:34 by llima-ce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int		find_cmd(t_pipex *pipex, int i);
 int		split_paths(t_pipex *pipex);
 
 void	free_all(t_pipex *pipex);
-
+void	free_ptr(void **fread);
 void	init_pipe(t_pipex *pipex);
 void	pipex_exc(t_pipex *pipex);
 void	perror_custom(t_pipex *pipex, char *error_msg);

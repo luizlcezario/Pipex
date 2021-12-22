@@ -67,13 +67,16 @@ FLAGS = -Wall -Wextra -Werror
 SRC = main.c init_pipex.c init_cmds.c init_cmds_utils.c errors.c pipex.c
 
 all: $(NAME)
-	./pipex ./files/teste "grep ola" "grep gosto" "wc -l" ./files/res 
 
 $(NAME):
 	@${GCC} -g3 -I ./headers $(addprefix ./src/, $(SRC)) $(addprefix ./libft/src/, $(LIBFT)) -o $(NAME)
-	
 
+teste: re
+	./pipex teste/assets/deepthought.txt "grep Now" "cat" files/res
+#  ./pipex teste/assets/deepthought.txt "wc -w" "cat" files/res
 
+teste2: re
+	./teste/run.sh
 
 clean: 
 	rm ./a.out
@@ -83,4 +86,4 @@ fclean:
 
 re: fclean all
 
-.PHONY:clean all
+.PHONY:clean all re fclean teste
