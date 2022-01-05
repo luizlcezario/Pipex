@@ -1,0 +1,5 @@
+echo $FT_NBR2 + $FT_NBR1 | tr 'mrdoc' '01234' | tr "'\\\\\"?\!" "01234" | xargs echo "obase=13;ibase=5;" | bc 
+
+14120222 + 10321201
+
+82671

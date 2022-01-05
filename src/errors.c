@@ -6,23 +6,25 @@
 /*   By: llima-ce <llima-ce@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 19:13:01 by llima-ce          #+#    #+#             */
-/*   Updated: 2021/12/21 18:47:54 by llima-ce         ###   ########.fr       */
+/*   Updated: 2022/01/04 18:53:24 by llima-ce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-void free_ptr(void **fread)
+void	free_ptr(void **fread)
 {
-	if(*fread != NULL)
+	if (*fread != NULL)
 	{
 		free(*fread);
 		*fread = NULL;
 	}
 }
 
-void	perror_custom(t_pipex *pipex, char *error_msg)
+void	perror_custom(t_pipex *pipex, char *error_msg, int flag)
 {
+	if (flag)
+		pipex->cmd_num = flag;
 	if (pipex->err_num != 0)
 		free_all(pipex);
 	exit(ft_error(pipex->err_num, error_msg));
@@ -30,21 +32,24 @@ void	perror_custom(t_pipex *pipex, char *error_msg)
 
 void	free_all(t_pipex *pipex)
 {
-	int a;
-	int b;
+	int	a;
+	int	b;
 
 	a = -1;
-	while(++a < pipex->cmd_num)
+	while (++a < pipex->cmd_num)
 	{
 		b = -1;
-		while (pipex->cmd[a]->argv[++b] !=  NULL)
-			free_ptr((void **)&pipex->cmd[a]->argv[b]);
-		free_ptr((void **)&pipex->cmd[a]->argv);
-		free_ptr((void **)&pipex->cmd[a]->path_cmd);
-		free_ptr((void **)&pipex->cmd[a]);
+		if (pipex->cmd[a] != NULL)
+		{
+			while (pipex->cmd[a]->argv[++b] != NULL)
+				free_ptr((void **)&pipex->cmd[a]->argv[b]);
+			free_ptr((void **)&pipex->cmd[a]->argv);
+			free_ptr((void **)&pipex->cmd[a]->path_cmd);
+			free_ptr((void **)&pipex->cmd[a]);
+		}
 	}
 	a = -1;
-	while(pipex->paths[++a] != NULL)
+	while (pipex->paths[++a] != NULL)
 		free_ptr((void **)&pipex->paths[a]);
 	free_ptr((void **)&pipex->paths);
 	free_ptr((void **)&pipex->cmd);

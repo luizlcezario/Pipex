@@ -10,10 +10,11 @@
 			"request": "launch",
 			"program": "${workspaceRoot}/pipex",
 			"args": [
-				"infile",
-				"ls -l",
-				"wc -l",
-				"outfile",
+				"files/teste",
+				"cat",
+				"tr '\n' '+'",
+				"tr 'mrdoc' '01234'",
+				"files/res"
 			],
 			"stopAtEntry": true,
 			"cwd": "${workspaceFolder}",
@@ -28,8 +29,8 @@
 			"program": "${workspaceRoot}/pipex",
 			"args": [
 				"files/teste",
-				"wc -w",
-				"cat",
+				"teste asds",
+				"wc",
 				"files/res"
 			],
 			"stopAtEntry": false,

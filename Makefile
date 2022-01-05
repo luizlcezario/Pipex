@@ -35,16 +35,6 @@ LIBFT =  ft_isalpha.c		\
 		ft_strmapi.c		\
 		ft_striteri.c		\
 		ft_putnbr_fd.c		\
-		ft_lstnew.c			\
-		ft_lstadd_front.c	\
-		ft_lstsize.c		\
-		ft_lstlast.c		\
-		ft_lstadd_back.c	\
-		ft_lstdelone.c		\
-		ft_lstclear.c		\
-		ft_lstiter.c		\
-		ft_lstmap.c			\
-		get_next_line.c		\
 		ft_itoa_base.c		\
 		ft_strfstr.c		\
 		ft_errors.c			\
@@ -64,7 +54,8 @@ LIBFT =  ft_isalpha.c		\
 
 LIB_PTH = ./libft
 FLAGS = -Wall -Wextra -Werror
-SRC = main.c init_pipex.c init_cmds.c init_cmds_utils.c errors.c pipex.c
+SRC = main.c init_pipex.c init_cmds.c init_cmds_utils.c errors.c pipex.c \
+pipex_utils.c ft_split_pipex.c
 
 all: $(NAME)
 
@@ -72,8 +63,9 @@ $(NAME):
 	@${GCC} -g3 -I ./headers $(addprefix ./src/, $(SRC)) $(addprefix ./libft/src/, $(LIBFT)) -o $(NAME)
 
 teste: re
-	./pipex teste/assets/deepthought.txt "grep Now" "cat" files/res
-#  ./pipex teste/assets/deepthought.txt "wc -w" "cat" files/res
+	./pipex "files/teste" "teste/assets/deepthought.txt" "wc" "notexisting" "files/res"
+# "xargs echo 'obase=13;ibase=5;'" "bc" "tr '0123456789ABC' 'gtaioluSnemf'" "files/res"
+#	./pipex "teste/assets/deepthought.txt" "grep Now" "cat" "files/res"
 
 teste2: re
 	./teste/run.sh
