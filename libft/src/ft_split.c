@@ -6,7 +6,7 @@
 /*   By: llima-ce <llima-ce@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/19 17:44:14 by llima-ce          #+#    #+#             */
-/*   Updated: 2021/12/21 17:45:35 by llima-ce         ###   ########.fr       */
+/*   Updated: 2022/01/05 16:38:28 by llima-ce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ char	**ft_split(char const *s, char c)
 	res = (char **)malloc(sizeof(char *) * (num + 1));
 	if (!res)
 		return (NULL);
-	res[num] = NULL; 
+	res[num] = NULL;
 	ft_fill_matrix(s, c, num, res);
 	return (res);
 }

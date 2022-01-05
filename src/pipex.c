@@ -6,7 +6,7 @@
 /*   By: llima-ce <llima-ce@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 21:50:03 by llima-ce          #+#    #+#             */
-/*   Updated: 2022/01/05 15:30:41 by llima-ce         ###   ########.fr       */
+/*   Updated: 2022/01/05 15:58:18 by llima-ce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,12 @@ static int	execute_cmds(t_pipex *pipex, int *fd, int a, int fd_tmp)
 {
 	pid_t	pid;
 
+	testing_programing(pipex, a);
 	pid = fork();
 	if (pid == -1)
 		perror_custom(pipex, "error to try fork", 0);
 	else if (pid == 0)
 	{
-		testing_programing(pipex, a);
 		if (pipex->err_num == 0)
 		{
 			pipe_change(pipex, fd, a, fd_tmp);

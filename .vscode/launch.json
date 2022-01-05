@@ -12,7 +12,7 @@
 			"args": [
 				"files/teste",
 				"cat",
-				"tr '\n' '+'",
+				"tr ' ' '+'",
 				"tr 'mrdoc' '01234'",
 				"files/res"
 			],
@@ -29,8 +29,8 @@
 			"program": "${workspaceRoot}/pipex",
 			"args": [
 				"files/teste",
-				"teste asds",
-				"wc",
+				"cat",
+				"tr ' ' '+'",
 				"files/res"
 			],
 			"stopAtEntry": false,

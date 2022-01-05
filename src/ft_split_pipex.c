@@ -6,7 +6,7 @@
 /*   By: llima-ce <llima-ce@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/19 17:44:14 by llima-ce          #+#    #+#             */
-/*   Updated: 2022/01/05 15:07:13 by llima-ce         ###   ########.fr       */
+/*   Updated: 2022/01/05 16:38:04 by llima-ce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,18 @@ char	**ft_split_cmds(char const *s)
 	res = (char **)malloc(sizeof(char *) * (num + 1));
 	if (!res)
 		return (NULL);
-	res[num] = NULL; 
+	res[num] = NULL;
 	ft_fill_matrix(s, num, res);
 	return (res);
+}
+
+static int	verify_quotes(char const *s, size_t num)
+{
+	num++;
+	while (s[num] != 39 && s[num] != 0)
+		num++;
+	num++;
+	return (num);
 }
 
 static size_t	count_s(char const *s)
@@ -41,13 +50,12 @@ static size_t	count_s(char const *s)
 	count = 0;
 	while (*tmp != 0)
 	{
-		while (*tmp == ' ' || *tmp == 39 && *tmp != 0)
+		while (*tmp == ' ' && *tmp != 0)
 			++tmp;
-		if(*(tmp - 1) == 39)
+		if (*(tmp) == 39)
 		{
-			while (*tmp != 39 && *tmp != 0)
-				++tmp;
-			if (*(tmp + 1) == ' ' || *(tmp + 1) == 0)
+			tmp = verify_quotes(tmp, 0);
+			if (*(tmp) == ' ' || *(tmp) == 0)
 				count++;
 		}
 		else
@@ -72,10 +80,15 @@ static void	ft_fill_matrix(char const *s, size_t num, char **res)
 	while (count < num)
 	{
 		len_word = 0;
-		while ((*start_str == ' ' || *start_str == 39) && *start_str != 0)
+		while (*start_str == ' ' && *start_str != 0)
 			++start_str;
-		while (start_str[len_word] != 39 && start_str[len_word] != ' ' && start_str[len_word] != 0)
-			len_word++;
+		while (start_str[len_word] != ' ' && start_str[len_word] != 0)
+		{
+			if (start_str[len_word] == 39)
+				len_word = verify_quotes(start_str, len_word);
+			else
+				len_word++;
+		}
 		if (start_str[len_word] != ' ' && start_str[len_word] != 0)
 			continue ;
 		res[count] = ft_substr(start_str, 0, len_word);

@@ -47,7 +47,7 @@ $(NAME):
 	@${GCC} -g3 -I ./headers $(addprefix ./src/, $(SRC)) $(addprefix ./libft/src/, $(LIBFT)) -o $(NAME)
 
 teste: re
-	./pipex "files/teste" "teste/assets/deepthought.txt" "wc" "notexisting" "files/res"
+	./pipex "files/teste" "cat" "tr ' ' +" "files/res"
 # "xargs echo 'obase=13;ibase=5;'" "bc" "tr '0123456789ABC' 'gtaioluSnemf'" "files/res"
 #	./pipex "teste/assets/deepthought.txt" "grep Now" "cat" "files/res"
 
