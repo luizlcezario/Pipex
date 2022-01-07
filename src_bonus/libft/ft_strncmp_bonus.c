@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strncmp_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/30 22:54:37 by llima-ce          #+#    #+#             */
-/*   Updated: 2022/01/05 22:06:31 by coder            ###   ########.fr       */
+/*   Created: 2021/08/17 18:40:32 by llima-ce          #+#    #+#             */
+/*   Updated: 2022/01/05 22:05:08 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "libft_bonus.h"
 
-int	main(int argc, char **argv, char **envp)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	t_pipex	pipex;
+	size_t	a;
 
-	if (argc >= 5)
+	a = 0;
+	if (n == 0)
+		return (0);
+	while (*s2 && *s1 && *s2 == *s1 && a < n - 1)
 	{
-		init_pipex(&pipex, argc, argv, envp);
-		pipex_exc(&pipex);
-		free_all(&pipex);
-		exit(0);
+		s1++;
+		s2++;
+		a++;
 	}
-	else
-		exit(ft_error(22, "Too few argument!"));
+	return ((*(unsigned char *)s1) - (*(unsigned char *)s2));
 }

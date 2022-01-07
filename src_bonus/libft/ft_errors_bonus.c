@@ -1,28 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_errors_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/30 22:54:37 by llima-ce          #+#    #+#             */
-/*   Updated: 2022/01/05 22:06:31 by coder            ###   ########.fr       */
+/*   Created: 2021/12/01 23:08:45 by llima-ce          #+#    #+#             */
+/*   Updated: 2022/01/05 22:05:08 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "libft_bonus.h"
+#include <string.h>
 
-int	main(int argc, char **argv, char **envp)
+int	ft_error(int errnum, char *message)
 {
-	t_pipex	pipex;
-
-	if (argc >= 5)
-	{
-		init_pipex(&pipex, argc, argv, envp);
-		pipex_exc(&pipex);
-		free_all(&pipex);
-		exit(0);
-	}
+	ft_printf("\033[31mError\n\033[35m");
+	if (errnum > 0 && message != NULL)
+		ft_printf("\t%s:%s\n", message, strerror(errnum));
 	else
-		exit(ft_error(22, "Too few argument!"));
+		perror(strerror(26));
+	ft_printf("\033[0m");
+	return (errnum);
 }

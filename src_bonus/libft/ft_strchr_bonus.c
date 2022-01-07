@@ -1,28 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strchr_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/30 22:54:37 by llima-ce          #+#    #+#             */
-/*   Updated: 2022/01/05 22:06:31 by coder            ###   ########.fr       */
+/*   Created: 2021/08/17 16:38:51 by llima-ce          #+#    #+#             */
+/*   Updated: 2022/01/05 22:05:08 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "libft_bonus.h"
 
-int	main(int argc, char **argv, char **envp)
+char	*ft_strchr(const char *str, int n)
 {
-	t_pipex	pipex;
+	int	a;
 
-	if (argc >= 5)
+	a = 0;
+	while (*(str + a) != (char)n)
 	{
-		init_pipex(&pipex, argc, argv, envp);
-		pipex_exc(&pipex);
-		free_all(&pipex);
-		exit(0);
+		if (*(str + a) == 0)
+			return (NULL);
+		a++;
 	}
-	else
-		exit(ft_error(22, "Too few argument!"));
+	return ((char *)(str + a));
 }

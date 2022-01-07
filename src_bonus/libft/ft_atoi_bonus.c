@@ -1,28 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_atoi_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/30 22:54:37 by llima-ce          #+#    #+#             */
-/*   Updated: 2022/01/05 22:06:31 by coder            ###   ########.fr       */
+/*   Created: 2021/08/18 12:53:11 by llima-ce          #+#    #+#             */
+/*   Updated: 2022/01/05 22:05:08 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "libft_bonus.h"
 
-int	main(int argc, char **argv, char **envp)
+int	ft_atoi(const char *dest)
 {
-	t_pipex	pipex;
+	int	sign;
+	int	num;
+	int	a;
 
-	if (argc >= 5)
+	a = 0;
+	if (*dest == 0)
+		return (0);
+	while (dest[a] == ' ' || (dest[a] >= 9 && dest[a] <= 13))
+		a++;
+	sign = 1;
+	if (dest[a] == '+' || dest[a] == '-')
 	{
-		init_pipex(&pipex, argc, argv, envp);
-		pipex_exc(&pipex);
-		free_all(&pipex);
-		exit(0);
+		if (dest[a] == '-')
+			sign = -sign;
+		a++;
 	}
-	else
-		exit(ft_error(22, "Too few argument!"));
+	num = 0;
+	while (dest[a] <= '9' && dest[a] >= '0')
+	{
+		num *= 10;
+		num = num + dest[a] - 48;
+		a++;
+	}
+	return (num * sign);
 }

@@ -1,28 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   init_cmds_utils_bonus.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/30 22:54:37 by llima-ce          #+#    #+#             */
-/*   Updated: 2022/01/05 22:06:31 by coder            ###   ########.fr       */
+/*   Created: 2021/12/07 18:56:02 by llima-ce          #+#    #+#             */
+/*   Updated: 2022/01/05 22:04:52 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "pipex_bonus.h"
 
-int	main(int argc, char **argv, char **envp)
+int	split_paths(t_pipex *pipex)
 {
-	t_pipex	pipex;
+	char	*path;
+	int		i;
 
-	if (argc >= 5)
+	i = 0;
+	path = NULL;
+	while (path == NULL)
 	{
-		init_pipex(&pipex, argc, argv, envp);
-		pipex_exc(&pipex);
-		free_all(&pipex);
-		exit(0);
+		path = ft_strnstr(pipex->envp[i], "PATH=", 5);
+		if (pipex->envp[i] == NULL)
+			return (10);
+		i++;
 	}
-	else
-		exit(ft_error(22, "Too few argument!"));
+	path = ft_strchr(path, '/');
+	pipex->paths = ft_split(path, ':');
+	return (0);
 }

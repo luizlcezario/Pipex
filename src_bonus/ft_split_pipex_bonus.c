@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_split_pipex.c                                   :+:      :+:    :+:   */
+/*   ft_split_pipex_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/19 17:44:14 by llima-ce          #+#    #+#             */
-/*   Updated: 2022/01/05 21:56:02 by coder            ###   ########.fr       */
+/*   Updated: 2022/01/05 22:05:08 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libft_bonus.h"
 
 static void		ft_fill_matrix(char const *s, size_t num, char **res);
 static size_t	count_s(char const *s);

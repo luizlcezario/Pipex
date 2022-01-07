@@ -1,6 +1,6 @@
 GCC = gcc
-NAME = pipex
 
+NAME = pipex
 
 LIBFT = ft_isdigit.c		\
 		ft_memcpy.c			\
@@ -36,30 +36,34 @@ LIBFT = ft_isdigit.c		\
 		ft_check_errors.c	\
 		flags_pointer.c
 
-LIB_PTH = ./libft
 FLAGS = -Wall -Wextra -Werror
+
 SRC = main.c init_pipex.c init_cmds.c init_cmds_utils.c errors.c pipex.c \
 pipex_utils.c ft_split_pipex.c
+
+BONUS = $(SRC:.c=_bonus.c)
+
+BONUS_LIBFT = $(LIBFT:.c=_bonus.c)
 
 all: $(NAME)
 
 $(NAME):
-	@${GCC} -g3 -I ./headers $(addprefix ./src/, $(SRC)) $(addprefix ./libft/src/, $(LIBFT)) -o $(NAME)
+	${GCC} $(FLAGS) -I ./src/headers $(addprefix ./src/, $(SRC)) $(addprefix ./src/libft/, $(LIBFT)) -o $(NAME)
 
-teste: re
-	./pipex "files/teste" "cat" "tr ' ' +" "files/res"
-# "xargs echo 'obase=13;ibase=5;'" "bc" "tr '0123456789ABC' 'gtaioluSnemf'" "files/res"
-#	./pipex "teste/assets/deepthought.txt" "grep Now" "cat" "files/res"
-
-teste2: re
-	./teste/run.sh
-
-clean: 
-	rm ./a.out
+clean:
+	rm $(NAME)
 
 fclean:
 	rm $(NAME)
 
 re: fclean all
 
-.PHONY:clean all re fclean teste
+bonus: $(addprefix ./src_bonus/,$(BONUS))
+	${GCC}  $(FLAGS)  -I ./src_bonus/headers $(addprefix ./src_bonus/, $(BONUS)) $(addprefix ./src_bonus/libft/, $(BONUS_LIBFT)) -o $(NAME)
+
+re_bonus: fclean bonus
+
+teste: re
+	./pipex "files/teste" "cat /etc/passwd" "awk -F : '{print $1}'" "sed '1~2d'" "rev" "sort -r" "files/res"
+
+.PHONY:clean all re fclean bonus re_bonus
