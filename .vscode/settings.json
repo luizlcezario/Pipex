@@ -1,6 +1,8 @@
 {
 	"files.associations": {
 		"fcntl.h": "c",
-		"pipex.h": "c"
+		"pipex.h": "c",
+		"libft.h": "c",
+		"libft_bonus.h": "c"
 	}
 }
