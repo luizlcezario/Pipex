@@ -13,7 +13,6 @@
 				"files/teste",
 				"cat",
 				"tr ' ' '+'",
-				"tr 'mrdoc' '01234'",
 				"files/res"
 			],
 			"stopAtEntry": true,

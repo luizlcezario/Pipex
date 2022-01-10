@@ -3,16 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split_pipex.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
+/*   By: llima-ce <llima-ce@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/19 17:44:14 by llima-ce          #+#    #+#             */
-/*   Updated: 2022/01/05 21:56:02 by coder            ###   ########.fr       */
+/*   Updated: 2022/01/08 18:46:06 by llima-ce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "pipex.h"
 
 static void		ft_fill_matrix(char const *s, size_t num, char **res);
+static void		ft_remove_quotes(char **res, int num);
 static size_t	count_s(char const *s);
 
 char	**ft_split_cmds(char const *s)
@@ -29,14 +30,36 @@ char	**ft_split_cmds(char const *s)
 		return (NULL);
 	res[num] = NULL;
 	ft_fill_matrix(s, num, res);
+	ft_remove_quotes(res, num);
 	return (res);
+}
+
+static void	ft_remove_quotes(char **res, int num)
+{
+	int		a;
+	char	*tmp;
+
+	a = -1;
+	while (++a < num)
+	{
+		if (*res[a] == '\'' || *res[a] == '\"')
+		{
+			tmp = ft_substr(res[a], 1, ft_strlen(res[a]) - 2);
+			free_ptr((void **)&res[a]);
+			res[a] = tmp;
+		}
+	}
 }
 
 static int	verify_quotes(char const *s, size_t num)
 {
 	num++;
-	while (s[num] != 39 && s[num] != 0)
+	while ((num == 1 || s[num] != 39) && s[num] != 0)
+	{
 		num++;
+		if(s[num] == 39 && s[num + 1] == '\\')
+			num++;
+	}
 	num++;
 	return (num);
 }
@@ -86,11 +109,11 @@ static void	ft_fill_matrix(char const *s, size_t num, char **res)
 		{
 			if (start_str[len_word] == 39)
 				len_word = verify_quotes(start_str, len_word);
+			else if (start_str[len_word] == ' ' && start_str[len_word] == 0)
+				break ;
 			else
 				len_word++;
 		}
-		if (start_str[len_word] != ' ' && start_str[len_word] != 0)
-			continue ;
 		res[count] = ft_substr(start_str, 0, len_word);
 		start_str += len_word;
 		count++;

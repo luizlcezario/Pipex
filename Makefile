@@ -64,6 +64,7 @@ bonus: $(addprefix ./src_bonus/,$(BONUS))
 re_bonus: fclean bonus
 
 teste: re
-	./pipex "files/teste" "cat /etc/passwd" "awk -F : '{print $1}'" "sed '1~2d'" "rev" "sort -r" "files/res"
+	./pipex "./files/teste" "echo $FT_NBR2 + $FT_NBR1" "tr 'mrdoc' 01234" "tr ''\\\\\"?\!' 01234" "xargs echo 'obase=13;ibase=5;'" "bc" "tr '0123456789ABC' 'gtaio luSnemf' " "./files/res"
 
+#  "cat" "tr ' ' '+'" "tr 'mrdoc' 01234" "tr ''\\\\\"?\!' 01234"  " xargs echo 'obase=13;ibase=5;'" "bc" "tr '0123456789ABC' 'gtaio luSnemf' "
 .PHONY:clean all re fclean bonus re_bonus
