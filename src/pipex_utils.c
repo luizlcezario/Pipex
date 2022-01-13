@@ -21,7 +21,7 @@ void	dup_custom(int fd1, int fd2, char *cmd, t_pipex *pipex)
 void	command_not_found(t_pipex *pipex, char *cmd)
 {
 	ft_printf("%s: command not found\n", cmd);
-	pipex->err_num = 127;
+	pipex->err_num = 0;
 }
 
 int	find_cmd(t_pipex *pipex, int i)
