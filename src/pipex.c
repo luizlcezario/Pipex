@@ -53,7 +53,7 @@ static int	execute_cmds(t_pipex *pipex, int *fd, int a, int fd_tmp)
 		}
 		else
 			command_not_found(pipex, pipex->cmd[a]->argv[0]);
-		return (0);
+		exit (0);
 	}
 	wait(&pipex->err_num);
 	close(pipex->fd.infd);
