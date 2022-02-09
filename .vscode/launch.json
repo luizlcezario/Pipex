@@ -43,7 +43,6 @@
 					"text": "-enable-pretty-printing",
 				}
 			],
-			"preLaunchTask": "C/C++: gcc build active file",
 			"miDebuggerPath": "/usr/bin/gdb"
 		}
 	]

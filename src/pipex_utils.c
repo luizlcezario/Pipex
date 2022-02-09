@@ -6,7 +6,7 @@
 /*   By: llima-ce <llima-ce@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/04 16:13:38 by llima-ce          #+#    #+#             */
-/*   Updated: 2022/01/05 15:27:58 by llima-ce         ###   ########.fr       */
+/*   Updated: 2022/02/09 11:39:36 by llima-ce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	dup_custom(int fd1, int fd2, char *cmd, t_pipex *pipex)
 void	command_not_found(t_pipex *pipex, char *cmd)
 {
 	ft_printf("%s: command not found\n", cmd);
-	pipex->err_num = 127;
+	pipex->err_num = 0;
 }
 
 int	find_cmd(t_pipex *pipex, int i)

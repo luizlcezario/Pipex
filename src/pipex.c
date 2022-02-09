@@ -6,7 +6,7 @@
 /*   By: llima-ce <llima-ce@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 21:50:03 by llima-ce          #+#    #+#             */
-/*   Updated: 2022/01/08 18:09:10 by llima-ce         ###   ########.fr       */
+/*   Updated: 2022/02/09 14:05:20 by llima-ce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,8 @@ static void	pipe_change(t_pipex *pipex, int *fd, int a, int fd_tmp)
 static int	execute_cmds(t_pipex *pipex, int *fd, int a, int fd_tmp)
 {
 	pid_t	pid;
-
+	int teste;
+	
 	pid = fork();
 	if (pid == -1)
 		perror_custom(pipex, "error to try fork", 0);
@@ -53,9 +54,10 @@ static int	execute_cmds(t_pipex *pipex, int *fd, int a, int fd_tmp)
 		}
 		else
 			command_not_found(pipex, pipex->cmd[a]->argv[0]);
-		return (0);
+		exit (0);
 	}
-	wait(&pipex->err_num);
+	wait(&teste);
+	printf("%d", teste);
 	close(pipex->fd.infd);
 	pipex->fd.infd = fd[0];
 	close(fd[1]);
