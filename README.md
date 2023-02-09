@@ -24,7 +24,7 @@
 </p>
 
 <div align="center">
-  <sub>Push Swap of 42. Make with ❤︎ for
+  <sub>Pipex of 42. Make with ❤︎ for
         <a href="https://github.com/luizlcezario">Luiz Cezario</a> 
     </a>
   </sub>
