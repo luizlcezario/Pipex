@@ -47,8 +47,6 @@ The idea to make the piex work is that you will need to take the command e separ
 
 	```
 
-
-
-> So long, and thanks for all the fish!
+> Cristina: "Go dance salsa somewhere :)"
 
 Give ⭐️ if you like this project, this will help me!
